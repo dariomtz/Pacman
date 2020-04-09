@@ -1,0 +1,21 @@
+#inputs
+NET "num[0]" LOC = "B2";
+NET "num[1]" LOC = "A3";
+NET "num[2]" LOC = "J3";
+NET "num[3]" LOC = "B5";
+NET "num[4]" LOC = "C6";
+NET "num[5]" LOC = "B6";
+NET "num[6]" LOC = "C5";
+NET "num[7]" LOC = "B7";
+
+#outputs
+NET "disp[0]" LOC = "M5";
+NET "disp[1]" LOC = "M11";
+NET "disp[2]" LOC = "P7";
+NET "disp[3]" LOC = "P6";
+NET "disp[4]" LOC = "N5";
+NET "disp[5]" LOC = "N4";
+NET "disp[6]" LOC = "P4";
+NET "disp[7]" LOC = "G1";
+
+
