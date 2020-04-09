@@ -11,7 +11,7 @@ module top(
     );
 
     wire [3:0] num;
-    keyboard k(.clk(clk), .rows(rows), .cols(cols), out(num));
+    keyboard k(.clk(clk), .rows(rows), .cols(cols), .out(num));
     
     display d(.n(num), .d(display));
                                                 
