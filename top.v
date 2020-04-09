@@ -7,13 +7,16 @@ module top(
     input clk,
     input [3:0] rows,
     output [3:0] cols,
-    output [6:0] display
+    output [6:0] display,
+    output [3:0] equis
     );
 
     wire [3:0] num;
-    
+
     keyboard k(.clk(clk), .r(rows), .c(cols), .out(num));
     
     display d(.n(num), .d(display));
+
+    assign equis = num;
                                                 
 endmodule
