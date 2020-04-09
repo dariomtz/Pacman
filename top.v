@@ -4,19 +4,15 @@
 // Engineer:  dariomtz
 //////////////////////////////////////////////////////////////////////////////////
 module top(
+    input clk,
     input [3:0] rows,
-    input [3:0] cols,
-    output [7:0] leds
+    output reg [3:0] cols,
+    output [6:0] display
     );
 
-    assign leds[0] = (rows[0] == cols[0]) ? 1 : 0;
-    assign leds[1] = rows[0] & cols[0];
-    assign leds[2] = rows[0] & cols[0];
-    assign leds[3] = rows[0] & cols[0];
-    assign leds[4] = rows[0] & cols[0];
-    assign leds[5] = rows[0] & cols[0];
-    assign leds[6] = rows[0] & cols[0];
-    assign leds[7] = rows[0] & cols[0];
+    wire [3:0] num;
+    keyboard k(.clk(clk), .rows(rows), .cols(cols), out(num));
     
+    display d(.n(num), .d(display));
                                                 
 endmodule
