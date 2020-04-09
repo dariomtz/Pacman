@@ -5,17 +5,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 module keyboard(
     input clk,
-    input [3:0] rows,
-    output reg[3:0] cols,
+    input [3:0] r,
+    output [3:0] c,
     output [3:0] out
     );
 
     reg [3:0] num;
+    reg [3:0] cols;
 
     always @(posedge clk) begin
         case (cols)
             4'b1110: begin
-                case (rows)
+                case (r)
                     4'b1110: num <= 1;
                     4'b1101: num <= 4;
                     4'b1011: num <= 7;
@@ -25,7 +26,7 @@ module keyboard(
             end
              
             4'b1101: begin
-                case (rows)
+                case (r)
                     4'b1110: num <= 2;
                     4'b1101: num <= 5;
                     4'b1011: num <= 8;
@@ -35,7 +36,7 @@ module keyboard(
             end
              
             4'b1011: begin
-                case (rows)
+                case (r)
                     4'b1110: num <= 3;
                     4'b1101: num <= 6;
                     4'b1011: num <= 9;
@@ -45,7 +46,7 @@ module keyboard(
             end
 
             4'b0111: begin
-                case (rows)
+                case (r)
                     4'b1110: num <= 10;
                     4'b1101: num <= 11;
                     4'b1011: num <= 12;
@@ -53,10 +54,13 @@ module keyboard(
                 endcase
                 cols <= 4'b1110;
             end
+
+            default: cols <= 4'b1110;
              
         endcase
     end
 
+    assign c = cols;
     assign out = num;
     
                                                 
