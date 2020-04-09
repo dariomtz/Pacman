@@ -9,7 +9,7 @@ module top(
     output [7:0] leds
     );
 
-    assign leds[0] = ~(rows[0] & cols[0]);
+    assign leds[0] = (rows[0] == cols[0]) ? 1 : 0;
     assign leds[1] = rows[0] & cols[0];
     assign leds[2] = rows[0] & cols[0];
     assign leds[3] = rows[0] & cols[0];
