@@ -15,47 +15,47 @@ module keyboard(
 
     always @(posedge clk) begin
         case (cols)
-            4'b1110: begin
+            4'b1000: begin
                 case (r)
-                    4'b1110: num <= 1;
-                    4'b1101: num <= 4;
-                    4'b1011: num <= 7;
-                    4'b0111: num <= 14;
+                    4'b1000: num <= 1;
+                    4'b0100: num <= 4;
+                    4'b0010: num <= 7;
+                    4'b0001: num <= 14;
                 endcase
-                cols <= 4'b1101;
+                cols <= 4'b0100;
             end
              
-            4'b1101: begin
+            4'b0100: begin
                 case (r)
-                    4'b1110: num <= 2;
-                    4'b1101: num <= 5;
-                    4'b1011: num <= 8;
-                    4'b0111: num <= 0;
+                    4'b1000: num <= 2;
+                    4'b0100: num <= 5;
+                    4'b0010: num <= 8;
+                    4'b0001: num <= 0;
                 endcase
-                cols <= 4'b1011;
+                cols <= 4'b0010;
             end
              
-            4'b1011: begin
+            4'b0010: begin
                 case (r)
-                    4'b1110: num <= 3;
-                    4'b1101: num <= 6;
-                    4'b1011: num <= 9;
-                    4'b0111: num <= 15;
+                    4'b1000: num <= 3;
+                    4'b0100: num <= 6;
+                    4'b0010: num <= 9;
+                    4'b0001: num <= 15;
                 endcase
-                cols <= 4'b0111;
+                cols <= 4'b0001;
             end
 
-            4'b0111: begin
+            4'b0001: begin
                 case (r)
-                    4'b1110: num <= 10;
-                    4'b1101: num <= 11;
-                    4'b1011: num <= 12;
-                    4'b0111: num <= 13;
+                    4'b1000: num <= 10;
+                    4'b0100: num <= 11;
+                    4'b0010: num <= 12;
+                    4'b0001: num <= 13;
                 endcase
-                cols <= 4'b1110;
+                cols <= 4'b1000;
             end
 
-            default: cols <= 4'b1110;
+            default: cols <= 4'b1000;
              
         endcase
     end
