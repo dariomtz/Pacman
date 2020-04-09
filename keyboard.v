@@ -7,7 +7,7 @@ module keyboard(
     input clk,
     input [3:0] rows,
     output reg[3:0] cols,
-    output [3:0] out,
+    output [3:0] out
     );
 
     reg [3:0] num;
