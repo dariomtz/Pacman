@@ -1,22 +1,2 @@
-# Pin assignment for LEDs. 
-# Para encenderlo requiere un 1
-NET "leds[0]" LOC ="M5";	 # L0, el de la derecha
-NET "leds[1]" LOC ="M11"; 	 # L1
-NET "leds[2]" LOC ="P7";	 # L2
-NET "leds[3]" LOC ="P6";	 # L3
-NET "leds[4]" LOC ="N5";	 # L4
-NET "leds[5]" LOC ="N4";	 # L5
-NET "leds[6]" LOC ="P4";	 # L6
-NET "leds[7]" LOC ="G1"; 	 # L7, el de la izquierda
-
 NET "clk" LOC = "B8"; # Bank = 0, Signal name = MCLK reloj interno
 
-NET "row[0]" LOC = "B2";# | DRIVE = 2 | PULLUP ;  # JA terminal 1, est� arriba de SW7Conector JA 
-NET "row[1]" LOC = "A3";#| DRIVE = 2 | PULLUP ;  # JA terminal 2
-NET "row[2]" LOC = "J3";# | DRIVE = 2 | PULLUP ;  # JA terminal 3
-NET "row[3]" LOC = "B5";# | DRIVE = 2 | PULLUP ;  # JA terminal 4, est� junto a la terminal JA-5, la de tierra 
- 
-NET "column[0]" LOC = "C6";# | DRIVE = 2 | PULLUP ;  # JB  1, est� arriba de SW4
-NET "column[1]" LOC = "B6";# | DRIVE = 2 | PULLUP ;  #�JB  2
-NET "column[2]" LOC = "C5";# | DRIVE = 2 | PULLUP ;  # JB  3
-NET "column[3]" LOC = "B7";# | DRIVE = 2 | PULLUP ;  # JB  4, est� junto a la terminal JB-5, la de tierra#   
