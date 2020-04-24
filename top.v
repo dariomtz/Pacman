@@ -31,7 +31,8 @@ module top(
     );
 
 	assign vga_r[2] = 1;
-	assign vga_r[1:0] = 0;
+	assign vga_r[1] = 1;
+	assign vga_r[0] = 1;
 	assign vga_g = 0;
 	assign vga_b = 0;
                                                 
