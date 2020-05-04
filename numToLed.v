@@ -6,7 +6,7 @@
 module numToLed(
     input [1:0] num,
     input pressed,
-    output [3:0] leds,
+    output [3:0] leds
     );
 
     assign leds =   (num == 0 & pressed) ?  1:
