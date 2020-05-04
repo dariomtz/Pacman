@@ -45,6 +45,7 @@ module Simon(
 			end else begin
 				//empezar a presionar
 				
+				
 			end
 			pressed <= pressed + 1; //dejar de presionar o volver a presionar
 		end else begin
@@ -54,12 +55,13 @@ module Simon(
 				if(playerNum != myNum)
 					begin
 						//game over
-						gameOver = 1;
+						gmOver <= 1;
 					end
 				
 				//cambiar turno
+				myNum <= myNum + 1;
 				myTurn <= myTurn + 1;
-
+				
 			end else begin
 				//contar para limitar el tiempo
 			end
