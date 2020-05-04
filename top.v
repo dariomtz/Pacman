@@ -4,36 +4,19 @@
 // Engineer:  dariomtz
 //////////////////////////////////////////////////////////////////////////////////
 module top(
+	input [3:0] btns,
 	input clk,
-	input rst,
-	output vga_hs,
-	output vga_vs,
-    output [2:0] vga_r,
-	output [2:0] vga_g,
-	output [1:0] vga_b
+	output [3:0] leds,
+	output sound
     );
 
-	wire pixel_clk;
+	wire [1:0] num;
+	wire pressed;
 
-	clk25Mhz c(.clk_50mhz(clk), .clk_25mhz(pixel_clk));
-	
-	wire [9:0] x;  // current pixel x position: 10-bit value: 0-1023
-    wire [8:0] y;  // current pixel y position:  9-bit value: 0-511
+	btnInterpreter i(.btns(btns), .num(num), .pressed(pressed));
 
-	vga640x480 display (
-        .i_clk(clk),
-        .i_pix_stb(pixel_clk),
-        .i_rst(rst),
-        .o_hs(vga_hs), 
-        .o_vs(vga_vs), 
-        .o_x(x), 
-        .o_y(y)
-    );
+	numToLed n(.num(num), .pressed(pressed), .leds(leds));
 
-	assign vga_r[2] = 1;
-	assign vga_r[1] = 1;
-	assign vga_r[0] = 1;
-	assign vga_g = 0;
-	assign vga_b = 0;
+	Speaker s(.clk(clk), .play(pressed), .frequency(25000), .sound(sound));
                                                 
 endmodule

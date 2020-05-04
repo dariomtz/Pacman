@@ -1,16 +1,15 @@
+#inputs
 NET "clk" LOC = "B8"; # Bank = 0, Signal name = MCLK reloj interno
-NET "rst" LOC = "G12"; # Bank = 0, Signal name = MCLK reloj interno
 
-NET "vga_r[0]" LOC = "C14";
-NET "vga_r[1]" LOC = "D13";
-NET "vga_r[2]" LOC = "F13";
+NET "btns[0]" LOC = "G12";
+NET "btns[1]" LOC = "C11";
+NET "btns[2]" LOC = "M4";
+NET "btns[3]" LOC = "A7";
 
-NET "vga_g[0]" LOC = "F14";
-NET "vga_g[1]" LOC = "G13";
-NET "vga_g[2]" LOC = "G14";
+#outputs
+NET "leds[0]" LOC = "M5";
+NET "leds[1]" LOC = "M11";
+NET "leds[2]" LOC = "P7";
+NET "leds[3]" LOC = "P6";
 
-NET "vga_b[0]" LOC = "H13";
-NET "vga_b[1]" LOC = "J13";
-
-NET "vga_hs" LOC = "J14";
-NET "vga_vs" LOC = "K13";
+NET "sound" LOC = "B2";
