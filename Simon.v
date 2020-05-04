@@ -19,17 +19,57 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module Simon(
-    output reg simonTurn,
-    output reg [1:0] simonNum,
-	 input [1:0] playerNum,
-	 input playerPressed,
-    output reg simonPressed,
-    input clk
+	input clk,
+
+	input [1:0] playerNum,
+	input playerPressed,
+
+    output simonTurn,
+    output [1:0] simonNum,
+    output simonPressed,
+	output gameOver
     );
-	 always @(posedge clk)
-	 begin
-		if(simonTurn)
-			simonNum <= simonNum + 1;
-	 end
+
+	reg myTurn;
+	reg [1:0] myNum;
+	reg pressed;
+	reg gmOver;
+
+	always @(posedge clk)
+	begin
+		if (myTurn) begin
+			//presionar botones
+			if (pressed) begin
+				//cambiar turno
+				myTurn <= myTurn + 1;
+			end else begin
+				//empezar a presionar
+				
+			end
+			pressed <= pressed + 1; //dejar de presionar o volver a presionar
+		end else begin
+			//escuchar user input
+			if (playerPressed) begin
+				//checar num del player
+				if(playerNum != myNum)
+					begin
+						//game over
+						gameOver = 1;
+					end
+				
+				//cambiar turno
+				myTurn <= myTurn + 1;
+
+			end else begin
+				//contar para limitar el tiempo
+			end
+		end
+			
+	end
+
+	assign simonTurn = myTurn;
+	assign simonNum = myNum;
+	assign simonPressed = pressed;
+	assign gameOver = gmOver;
 
 endmodule
