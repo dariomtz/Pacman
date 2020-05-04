@@ -3,7 +3,7 @@
 // Company: ITESO 
 // Engineer:  dariomtz
 //////////////////////////////////////////////////////////////////////////////////
-module top(
+module numToFrequency(
 	input [1:0] num,
 	input pressed,
     output [14:0] frequency
