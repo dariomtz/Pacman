@@ -15,14 +15,14 @@ NET "leds[3]" LOC = "P6";
 NET "sound" LOC = "B2";
 
 NET "display[0]" LOC = "L14";
-NET "display[1]" LOC = "H14";
+NET "display[1]" LOC = "H12";
 NET "display[2]" LOC = "N14";
 NET "display[3]" LOC = "N11";
 NET "display[4]" LOC = "P12";
 NET "display[5]" LOC = "L13";
 NET "display[6]" LOC = "M12";
 
-NET "pos[0]" LOC = "K14";
-NET "pos[1]" LOC = "M13";
-NET "pos[2]" LOC = "J12";
-NET "pos[3]" LOC = "F12";
+NET "pos[3]" LOC = "K14";
+NET "pos[2]" LOC = "M13";
+NET "pos[1]" LOC = "J12";
+NET "pos[0]" LOC = "F12";

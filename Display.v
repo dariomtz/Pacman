@@ -8,16 +8,16 @@ module Display(
 	input gameOver,
 	input clk,
 	output [3:0]pos,
-	output [7:0] display
+	output [6:0] display
     );
 	reg [1:0]mux;
 	reg toggle;
-	reg [16:0]counter1;
+	reg [19:0]counter1;
 	reg [6:0]counter2;
 	
 	always @(posedge clk)
 	begin
-		if(counter1 == 100_000)
+		if(counter1 == 1_000)
 			begin
 				mux <= mux + 1;
 				counter1 <= 0;
@@ -27,12 +27,12 @@ module Display(
 					end
 				counter2 <= counter2 + 1;
 			end
-			counter1 <= + 1;
+			counter1 <= counter1 + 1;
 	end
 	
-	assign pos = (mux = 0) ? 14 :
-					 (mux = 1) ? 13 :
-					 (mux = 2) ? 11 :
+	assign pos = (mux == 0) ? 14 :
+					 (mux == 1) ? 13 :
+					 (mux == 2) ? 11 :
 									 7  ;
 	assign display = (~gameOver & simonTurn & (mux == 0 | mux == 1)) ? 7'b0010010 ://S
 						  (~gameOver & simonTurn & (mux == 2 | mux == 3)) ? 7'b1111111 ://Off
