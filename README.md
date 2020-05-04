@@ -1,2 +1,2 @@
-# Pacman
-A version of pacman made with verilog.
+# Simon Says
+Simon says verilog for Basys 2.
