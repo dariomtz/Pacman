@@ -19,16 +19,17 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module Simon(
-    output simonTurn,
+    output reg simonTurn,
     output reg [1:0] simonNum,
 	 input [1:0] playerNum,
 	 input playerPressed,
-    output simonPressed,
+    output reg simonPressed,
     input clk
     );
 	 always @(posedge clk)
 	 begin
-		simonNum <= simonNum + 1;
+		if(simonTurn)
+			simonNum <= simonNum + 1;
 	 end
 
 endmodule

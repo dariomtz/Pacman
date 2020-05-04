@@ -35,8 +35,6 @@ module top(
 	
 	numToFrequency f0(.num(num), .pressed(pressed), .frequency(frequency));
 
-	
-	
 	numToLed n(.num(num), .pressed(pressed), .leds(leds));
 
 	Speaker s(.clk(clk), .play(pressed), .frequency(frequency), .sound(sound));
