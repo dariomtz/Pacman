@@ -15,8 +15,11 @@ module top(
 
 	btnInterpreter i(.btns(btns), .num(num), .pressed(pressed));
 
+	wire [14:0] frequency;
+	numToFrequency f0(.num(num), .pressed(pressed), .frequency(frequency));
+
 	numToLed n(.num(num), .pressed(pressed), .leds(leds));
 
-	Speaker s(.clk(clk), .play(pressed), .frequency(6250), .sound(sound));
+	Speaker s(.clk(clk), .play(pressed), .frequency(frequency), .sound(sound));
                                                 
 endmodule
