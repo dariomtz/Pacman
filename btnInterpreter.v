@@ -9,7 +9,7 @@ module btnInterpreter(
     output pressed
     );
 
-    assign pressed = (btns == 1) | (btns == 2) | (btns == 4) | (btns == 8)
+    assign pressed = (btns == 1) | (btns == 2) | (btns == 4) | (btns == 8);
     assign num =    (btns == 1) ?   0:
                     (btns == 2) ?   1:
                     (btns == 4) ?   2:
