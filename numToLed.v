@@ -13,6 +13,7 @@ module numToLed(
                     (num == 1 & pressed) ?  2:
                     (num == 2 & pressed) ?  4:
                     (num == 3 & pressed) ?  8:
+                    (num == 15 & pressed) ? 15:
                                             0;
 
 endmodule
