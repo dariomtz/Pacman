@@ -20,7 +20,7 @@ module Simon(
 	reg pressed;
 	reg gmOver;
 	reg [4:0] counterSimon;
-	reg [1:0] userState;
+	reg userState;
 	reg [1:0] playerNumCopy;
 	
 	always @(posedge clk or posedge reset)
@@ -50,12 +50,18 @@ module Simon(
 			end else begin
 				//user turn
 				if(playerPressed)begin
+					
 					if(myNum == playerNum)begin
-						myTurn <= myTurn + 1;
+						userState <= 1;
 					end else begin
 						gmOver <= 1;
-				end
-					
+					end
+				end else begin
+					if(userState == 1) begin
+						myTurn <= myTurn + 1;
+						myNum <= myNum + 1;
+						userState <= 0;
+					end
 				end
 			end
 		end
