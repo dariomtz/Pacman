@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
+// Company: ITESO
 // Engineer: dariomtz and natxsglez
 //////////////////////////////////////////////////////////////////////////////////
 module Simon(
@@ -60,7 +60,7 @@ module Simon(
 						begin
 							playerNumCopy <= playerNum;
 
-							if (~playerPressed) begin //player stopped pressing
+							if (playerPressed == 0) begin //player stopped pressing
 								userState <= 2;
 							end
 						end
