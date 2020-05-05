@@ -68,15 +68,15 @@ module Simon(
 					0:
 						begin
 							if (playerPressed) begin //player started pressing
-								userState <= userState + 1;
+								userState <= 1;
 							end
 						end
 					1:
 						begin
 							playerNumCopy <= playerNum;
 
-							if (!playerPressed) begin //player stopped pressing
-								userState <= userState + 1;
+							if (~playerPressed) begin //player stopped pressing
+								userState <= 2;
 							end
 						end
 					2:
@@ -89,10 +89,10 @@ module Simon(
 							else
 								begin
 									//change number or select next number
-							myNum <= myNum + 1;
+									myNum <= myNum + 1;
 
-							//change turn
-							myTurn <= myTurn + 1;
+									//change turn
+									myTurn <= myTurn + 1;
 								end
 							userState <= 0;
 						end
