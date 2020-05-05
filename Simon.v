@@ -50,22 +50,19 @@ module Simon(
 			end else begin
 				//user turn
 				case (userState)
-					0:
-						begin
+					0: begin
 							if (playerPressed) begin //player started pressing
 								userState <= 1;
 							end
 						end
-					1:
-						begin
+					1: begin
 							playerNumCopy <= playerNum;
 
 							if (playerPressed == 0) begin //player stopped pressing
 								userState <= 2;
 							end
 						end
-					2:
-						begin
+					2: begin
 							if(playerNumCopy != myNum)
 								begin
 									//game over
