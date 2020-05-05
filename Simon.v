@@ -8,7 +8,7 @@ module Simon(
 	input reset,
 	input [1:0] playerNum,
 	input playerPressed,
-
+	
     output simonTurn,
     output [1:0] simonNum,
     output simonPressed,
@@ -26,6 +26,8 @@ module Simon(
 	reg [6:0] counterPlayer;
 	reg userState;
 	wire [1:0] rand;
+	reg [3:0] level;
+	reg [1:0]memory[9:0];
 
 	random r(.clk(clk), .rand(rand));
 
@@ -41,6 +43,7 @@ module Simon(
 			counterPlayer <= 0;
 			turnCounter <= 0;
 			timesPressed <= 0;
+			level <= 0;
 
 			//change the number to a rand
 			myNum <= rand;
