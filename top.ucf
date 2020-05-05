@@ -1,6 +1,8 @@
 #inputs
 NET "clk" LOC = "B8"; # Bank = 0, Signal name = MCLK reloj interno
 
+NET "reset" LOC = "P11";
+
 NET "btns[0]" LOC = "G12";
 NET "btns[1]" LOC = "C11";
 NET "btns[2]" LOC = "M4";

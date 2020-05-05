@@ -6,6 +6,7 @@
 module top(
 	input [3:0] btns,
 	input clk,
+	input reset,
 	output [3:0] leds,
 	output sound,
 	output [3:0]pos,
