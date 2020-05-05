@@ -34,35 +34,37 @@ module Simon(
 			counterSimon <= 0;
 
 		end else begin
-			if (myTurn) begin
-				//presionar botones
-				counterSimon <= counterSimon + 1;
-				if (counterSimon == 30) begin
-					if (pressed) begin
-						//cambiar turno
-						myTurn <= myTurn + 1;
-					end else begin
-						//empezar a presionar
-						
+			if (!gmOver) begin
+				if (myTurn) begin
+					//presionar botones
+					counterSimon <= counterSimon + 1;
+					if (counterSimon == 30) begin
+						if (pressed) begin
+							//cambiar turno
+							myTurn <= myTurn + 1;
+						end else begin
+							//empezar a presionar
+							
+						end
+						pressed <= pressed + 1; //toggle pressed
+						counterSimon <= 0;
 					end
-					pressed <= pressed + 1; //toggle pressed
-					counterSimon <= 0;
-				end
-				
-			end else begin
-				//user turn
-				if(playerPressed)begin
 					
-					if(myNum == playerNum)begin
-						userState <= 1;
-					end else begin
-						gmOver <= 1;
-					end
 				end else begin
-					if(userState == 1) begin
-						myTurn <= myTurn + 1;
-						myNum <= rand;
-						userState <= 0;
+					//user turn
+					if(playerPressed)begin
+						
+						if(myNum == playerNum)begin
+							userState <= 1;
+						end else begin
+							gmOver <= 1;
+						end
+					end else begin
+						if(userState == 1) begin
+							myTurn <= myTurn + 1;
+							myNum <= rand;
+							userState <= 0;
+						end
 					end
 				end
 			end
