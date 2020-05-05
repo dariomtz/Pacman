@@ -12,12 +12,13 @@ module Display(
     );
 	reg [1:0]mux;
 	reg toggle;
-	reg [19:0]counter1;
+	reg [16:0]counter1;
 	reg [6:0]counter2;
 	
 	always @(posedge clk)
 	begin
-		if(counter1 == 1_000)
+		counter1 <= counter1 + 1;
+		if(counter1 == 50000)
 			begin
 				mux <= mux + 1;
 				counter1 <= 0;
@@ -27,7 +28,7 @@ module Display(
 					end
 				counter2 <= counter2 + 1;
 			end
-			counter1 <= counter1 + 1;
+		
 	end
 	
 	assign pos = (mux == 0) ? 14 :
