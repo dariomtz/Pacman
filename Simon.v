@@ -30,27 +30,29 @@ module Simon(
 	always @(posedge clk or posedge reset)
 	begin
 		if (reset) begin
+			//Simon begins
 			myTurn <= 1;
-			//reset the number array
+			//reset game over and counters
 			gmOver <= 0;
 			counterSimon <= 0;
 			counterPlayer <= 0;
 
+			//change the number to a rand
+			myNum <= rand;
+
 		end else begin
 			if (!gmOver) begin
 				if (myTurn) begin
-					//presionar botones
+					//press buttons
 					counterSimon <= counterSimon + 1;
 					if (counterSimon == 30) begin
 						if (pressed) begin
-							//cambiar turno
+							//change turn
 							myTurn <= myTurn + 1;
-						end else begin
-							//empezar a presionar
-							
-						end
+						end 
+
 						pressed <= pressed + 1; //toggle pressed
-						counterSimon <= 0;
+						counterSimon <= 0; //reset counter
 					end
 					
 				end else begin
