@@ -23,7 +23,6 @@ module top(
 	wire [1:0]simonNum;
 	wire [14:0] frequency;
 	wire gameOver;
-	wire [1:0]memory[9:0];
 	
 	btnInterpreter i(.btns(btns), .num(playerNum), .pressed(playerPressed));
 
@@ -39,7 +38,7 @@ module top(
 	assign pressed = (simonTurn) ? simonPressed :
 											 playerPressed;
 	
-	numToFrequency f0(.num(num), .pressed(pressed), .frequency(frequency));
+	numToFrequency f0(.num(num), .pressed(pressed), .frequency(frequency), .gameOver(gameOver));
 
 	numToLed n(.num(num), .pressed(pressed), .leds(leds));
 	
