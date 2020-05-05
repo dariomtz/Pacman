@@ -27,7 +27,7 @@ module top(
 	
 	btnInterpreter i(.btns(btns), .num(playerNum), .pressed(playerPressed));
 
-	ClkRedu simonClk(.clk(clk), .reset(0), .ClkRedu(clkRedu));
+	ClkRedu simonClk(.clk(clk), .reset(reset), .ClkRedu(clkRedu));
 	Simon simon(.simonTurn(simonTurn), .simonNum(simonNum),
 					.playerNum(playerNum), .playerPressed(playerPressed),
 					.simonPressed(simonPressed), .clk(clkRedu), 

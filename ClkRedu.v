@@ -20,7 +20,7 @@ module ClkRedu(
 			else
 				begin
 					count <= count + 1;
-					if(count == 833_334) //count to 833_334 to toggle 60 times per second
+					if(count == 416_667) //count to 833_334 to toggle 60 times per second
 						begin
 							ClkRedu <= ClkRedu + 1; //Toggle output
 							count <=0; //restart count
