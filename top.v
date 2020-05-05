@@ -32,7 +32,7 @@ module top(
 	Simon simon(.simonTurn(simonTurn), .simonNum(simonNum),
 					.playerNum(playerNum), .playerPressed(playerPressed),
 					.simonPressed(simonPressed), .clk(clkRedu),
-					.gameOver(gameOver));
+					.gameOver(gameOver), .reset(reset));
 	
 	assign num = (simonTurn) ? simonNum :
 										playerNum;

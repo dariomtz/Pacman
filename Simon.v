@@ -34,12 +34,9 @@ module Simon(
 	reg [1:0] myNum;
 	reg pressed;
 	reg gmOver;
-	
-	assign myTurn = 1;
 
 	always @(posedge clk or posedge reset)
 	begin
-
 		if (reset) begin
 			myTurn <= 1;
 			//reset the number array

@@ -20,7 +20,7 @@ always @(posedge clk, posedge reset)
 		else
 			begin
 				conteo <= conteo + 1;
-				if(conteo == 25_000_000) //contar hasta 25 millones para hacer Toggleo cada 0.5s
+				if(conteo == 833_334) //contar hasta 25 millones para hacer Toggleo cada 0.5s
 					begin
 						ClkRedu <= ClkRedu + 1; //Togglea la salida
 						conteo <=0; //reinicia la cuenta
