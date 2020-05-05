@@ -15,7 +15,7 @@ module Simon(
 	output gameOver
     );
 
-	wire rand;
+	wire [1:0] rand;
 	random r(.clk(clk), .rand(rand));
 
 	reg myTurn;
