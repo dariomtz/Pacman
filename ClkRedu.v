@@ -1,22 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: ITESO
-// Engineer: Nataly Salazar
-// 
-// Create Date:    09:37:24 03/25/2020 
-// Design Name: 
-// Module Name:    ClkRedu 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
+// Engineer: natxsglez
 //////////////////////////////////////////////////////////////////////////////////
 module ClkRedu(
 	input clk,

@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: ITESO 
-// Engineer:  dariomtz
+// Engineer:  dariomtz and natxsglez
 //////////////////////////////////////////////////////////////////////////////////
 module top(
 	input [3:0] btns,
@@ -22,6 +22,7 @@ module top(
 	wire [1:0]simonNum;
 	wire [14:0] frequency;
 	wire gameOver;
+	wire [1:0]memory[9:0];
 
 
 	btnInterpreter i(.btns(btns), .num(playerNum), .pressed(playerPressed));
