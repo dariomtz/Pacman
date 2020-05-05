@@ -13,7 +13,7 @@ module Display(
 	reg [1:0]mux;
 	reg toggle;
 	reg [16:0]counter1;
-	reg [6:0]counter2;
+	reg [9:0]counter2;
 	
 	always @(posedge clk)
 	begin
@@ -22,7 +22,7 @@ module Display(
 			begin
 				mux <= mux + 1;
 				counter1 <= 0;
-				if(counter2 == 100)
+				if(counter2 == 1000)
 					begin
 						toggle <= toggle + 1;
 					end
