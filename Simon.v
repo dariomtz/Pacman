@@ -67,7 +67,7 @@ module Simon(
 				case (userState)
 					0:
 						begin
-							if (playerPresed) begin //player started pressing
+							if (playerPressed) begin //player started pressing
 								userState <= userState + 1;
 							end
 						end
@@ -75,7 +75,7 @@ module Simon(
 						begin
 							playerNumCopy <= playerNum;
 
-							if (!playerPresed) begin //player stopped pressing
+							if (!playerPressed) begin //player stopped pressing
 								userState <= userState + 1;
 							end
 						end
