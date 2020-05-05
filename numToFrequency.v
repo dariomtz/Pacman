@@ -6,10 +6,12 @@
 module numToFrequency(
 	input [1:0] num,
 	input pressed,
+    input gameOver,
     output [14:0] frequency
     );
 
-	assign frequency =  (num == 0 & pressed) ?  25000:
+	assign frequency =  (gameOver)           ?  30000:
+                        (num == 0 & pressed) ?  25000:
                         (num == 1 & pressed) ?  12500:
                         (num == 2 & pressed) ?  8333:
                                                 6250;

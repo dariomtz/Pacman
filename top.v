@@ -36,8 +36,9 @@ module top(
 	assign num = (simonTurn) ? simonNum :
 										playerNum;
 										
-	assign pressed = (simonTurn) ? simonPressed :
-											 playerPressed;
+	assign pressed = 	(gameOver) 	? 	1:
+						(simonTurn)	? 	simonPressed :
+										playerPressed;
 	
 	numToFrequency f0(.num(num), .pressed(pressed), .frequency(frequency));
 
