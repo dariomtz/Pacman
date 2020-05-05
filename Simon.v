@@ -15,13 +15,15 @@ module Simon(
 	output gameOver
     );
 
+	wire rand;
+	random r(.clk(clk), .rand(rand));
+
 	reg myTurn;
 	reg [1:0] myNum;
 	reg pressed;
 	reg gmOver;
 	reg [4:0] counterSimon;
 	reg userState;
-	reg [1:0] playerNumCopy;
 	
 	always @(posedge clk or posedge reset)
 	begin
@@ -59,7 +61,7 @@ module Simon(
 				end else begin
 					if(userState == 1) begin
 						myTurn <= myTurn + 1;
-						myNum <= myNum + 1;
+						myNum <= rand;
 						userState <= 0;
 					end
 				end
