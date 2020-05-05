@@ -15,6 +15,9 @@ module Simon(
 	output gameOver
     );
 
+	reg [3:0] turnCounter;
+	reg [3:0] timesPressed;
+
 	reg myTurn;
 	reg [1:0] myNum;
 	reg pressed;
@@ -36,6 +39,8 @@ module Simon(
 			gmOver <= 0;
 			counterSimon <= 0;
 			counterPlayer <= 0;
+			turnCounter <= 0;
+			timesPressed <= 0;
 
 			//change the number to a rand
 			myNum <= rand;
@@ -47,8 +52,12 @@ module Simon(
 					counterSimon <= counterSimon + 1;
 					if (counterSimon == 30) begin
 						if (pressed) begin
-							//change turn
-							myTurn <= myTurn + 1;
+							timesPressed <= timesPressed + 1;
+							if (turnCounter == timesPressed) begin
+								timesPressed <= 0;
+								//change turn
+								myTurn <= myTurn + 1;
+							end		
 						end 
 
 						pressed <= pressed + 1; //toggle pressed
@@ -74,8 +83,21 @@ module Simon(
 						end
 
 						if(userState == 1) begin
-							myTurn <= myTurn + 1;
-							myNum <= rand;
+							timesPressed <= timesPressed + 1;
+							if (turnCounter == timesPressed) begin
+								timesPressed <= 0;
+								//change turn
+								myTurn <= myTurn + 1;
+								//pick new number
+								myNum <= rand;
+								//sum to turn counter
+								turnCounter <= turnCounter + 1;
+
+								if (turnCounter == 15) begin
+									gmOver <= 1;
+								end
+							end	
+							
 							userState <= 0;
 						end
 					end
