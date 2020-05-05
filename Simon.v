@@ -78,7 +78,12 @@ module Simon(
 								end
 							userState <= 0;
 						end
-					default: userState <= 0;
+					default: begin
+						userState <= 0;
+						//change turn
+						myTurn <= myTurn + 1;
+					end
+					
 				endcase
 			
 			end
