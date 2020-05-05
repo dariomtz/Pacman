@@ -24,14 +24,16 @@ module top(
 	wire [14:0] frequency;
 	wire gameOver;
 	wire [1:0]memory[9:0];
+	wire [1:0] rand;
 
+	random r(.clk(clk), .rand(rand));
 
 	btnInterpreter i(.btns(btns), .num(playerNum), .pressed(playerPressed));
 
 	ClkRedu simonClk(.clk(clk), .reset(0), .ClkRedu(clkRedu));
 	Simon simon(.simonTurn(simonTurn), .simonNum(simonNum),
 					.playerNum(playerNum), .playerPressed(playerPressed),
-					.simonPressed(simonPressed), .clk(clkRedu),
+					.simonPressed(simonPressed), .clk(clkRedu), .rand(rand),
 					.gameOver(gameOver), .reset(reset));
 	
 	assign num = (simonTurn) ? simonNum :

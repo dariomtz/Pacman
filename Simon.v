@@ -8,15 +8,13 @@ module Simon(
 	input reset,
 	input [1:0] playerNum,
 	input playerPressed,
+	input rand,
 
     output simonTurn,
     output [1:0] simonNum,
     output simonPressed,
 	output gameOver
     );
-
-	wire [1:0] rand;
-	random r(.clk(clk), .rand(rand));
 
 	reg myTurn;
 	reg [1:0] myNum;
