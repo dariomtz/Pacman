@@ -65,7 +65,7 @@ module Simon(
 						counterPlayer <= 0;
 
 					end else begin
-						counterPlayer <= counterPlayer + 1
+						counterPlayer <= counterPlayer + 1;
 
 						if (counterPlayer == 120) begin //if two seconds go by without pressing
 							gmOver <= 1;
