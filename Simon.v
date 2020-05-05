@@ -20,6 +20,7 @@ module Simon(
 	reg pressed;
 	reg gmOver;
 	reg [4:0] counterSimon;
+	reg [6:0] counterPlayer;
 	reg userState;
 	wire [1:0] rand;
 
@@ -33,6 +34,7 @@ module Simon(
 			//reset the number array
 			gmOver <= 0;
 			counterSimon <= 0;
+			counterPlayer <= 0;
 
 		end else begin
 			if (!gmOver) begin
@@ -60,7 +62,15 @@ module Simon(
 						end else begin
 							gmOver <= 1;
 						end
+						counterPlayer <= 0;
+
 					end else begin
+						counterPlayer <= counterPlayer + 1
+
+						if (counterPlayer == 120) begin //if two seconds go by without pressing
+							gmOver <= 1;
+						end
+
 						if(userState == 1) begin
 							myTurn <= myTurn + 1;
 							myNum <= rand;
