@@ -8,7 +8,6 @@ module Simon(
 	input reset,
 	input [1:0] playerNum,
 	input playerPressed,
-	input [1:0] rand,
 
     output simonTurn,
     output [1:0] simonNum,
@@ -22,6 +21,10 @@ module Simon(
 	reg gmOver;
 	reg [4:0] counterSimon;
 	reg userState;
+	wire [1:0] rand;
+
+	random r(.clk(clk), .rand(rand));
+
 	
 	always @(posedge clk or posedge reset)
 	begin
