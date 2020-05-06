@@ -32,7 +32,8 @@ module top(
 					.simonPressed(simonPressed), .clk(clkRedu), 
 					.gameOver(gameOver), .reset(reset));
 	
-	assign num = (simonTurn) ? simonNum :
+	assign num = 	(gameOver) 	? 15:
+					(simonTurn) ? simonNum :
 								playerNum;
 										
 	assign pressed = (simonTurn) ? 	simonPressed | gameOver :
