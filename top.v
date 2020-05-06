@@ -38,7 +38,7 @@ module top(
 	assign pressed = (simonTurn) ? 	simonPressed | gameOver :
 									playerPressed | gameOver ;
 	
-	numToFrequency f0(.num(num), .pressed(pressed), .frequency(frequency), .gameOver(gameOver));
+	numToFrequency f0(.num(num), .pressed(pressed), .frequency(frequency));
 
 	numToLed n(.num(num), .pressed(pressed), .leds(leds));
 	
