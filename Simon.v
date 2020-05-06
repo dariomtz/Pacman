@@ -54,63 +54,58 @@ module Simon(
 					//press buttons
 					counterSimon <= counterSimon + 1;
 					if (counterSimon == 30) begin
-						
-						if (pressed) begin
-							
-							if (level == timesPressed) begin
-								timesPressed <= 0;
-								//change turn
-								myTurn <= myTurn + 1;
-							end else begin
-								timesPressed <= timesPressed + 1;
-							end
-						end
 
-						pressed <= pressed + 1; //toggle pressed
-						counterSimon <= 0; //reset counter
+						if (level == timesPressed) begin
+							timesPressed <= 0;
+							//change turn
+							myTurn <= myTurn + 1;
+
+						end else begin
+
+							if (pressed) begin
+								timesPressed <= timesPressed + 1;
+								
+							end
+
+							pressed <= pressed + 1; //toggle pressed
+							counterSimon <= 0; //reset counter
+						end
+						
 					end
 					
 				end else begin
 					//user turn
-					if(playerPressed)begin
-						
-						if(myNum == playerNum)begin
-							userState <= 1;
+					if (level == timesPressed) begin
+						timesPressed <= 0;
+						//change turn
+						myTurn <= myTurn + 1;
+						if (level == 15) begin
+							gmOver <= 1;
 						end else begin
-							gmOver <= 1;
+							memory[level + 1] <= rand;
+							level <= level + 1;
 						end
-						counterPlayer <= 0;
-
 					end else begin
-						counterPlayer <= counterPlayer + 1;
-
-						if (counterPlayer == 120) begin //if two seconds go by without pressing
-							gmOver <= 1;
-						end
-
-						if(userState == 1) begin
-							
-							if (level == timesPressed) begin
-								timesPressed <= 0;
-								//change turn
-								myTurn <= myTurn + 1;
-								
-								//sum to turn counter
-								level <= level + 1;
-								//pick new number
-								//myNum <= rand;
-								
-
-								if (level == 15) begin
-									gmOver <= 1;
-								end else begin
-									memory[level] <= rand;
-								end
-							end	else begin
-								timesPressed <= timesPressed + 1;
+						if(playerPressed)begin
+						
+							if(myNum == playerNum)begin
+								userState <= 1;
+							end else begin
+								gmOver <= 1;
 							end
-							
-							userState <= 0;
+							counterPlayer <= 0;
+
+						end else begin
+							counterPlayer <= counterPlayer + 1;
+
+							if (counterPlayer == 120) begin //if two seconds go by without pressing
+								gmOver <= 1;
+							end
+
+							if(userState == 1) begin								
+								timesPressed <= timesPressed + 1;
+								userState <= 0;
+							end
 						end
 					end
 				end
