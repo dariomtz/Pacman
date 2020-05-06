@@ -16,8 +16,8 @@ module Simon(
     );
 
 	reg myTurn;
-	//wire [1:0] myNum;
-	reg [1:0] myNum;
+	wire [1:0] myNum;
+	//reg [1:0] myNum;
 	reg pressed;
 	reg gmOver;
 	reg [4:0] counterSimon;
