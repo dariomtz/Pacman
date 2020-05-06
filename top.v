@@ -32,8 +32,7 @@ module top(
 					.simonPressed(simonPressed), .clk(clkRedu), 
 					.gameOver(gameOver), .reset(reset));
 	
-	assign num = 	(gameOver) 	? 15:
-					(simonTurn) ? simonNum :
+	assign num = 	(simonTurn) ? simonNum :
 								playerNum;
 										
 	assign pressed = (simonTurn) ? 	simonPressed | gameOver :
@@ -41,7 +40,7 @@ module top(
 	
 	numToFrequency f0(.num(num), .pressed(pressed), .frequency(frequency));
 
-	numToLed n(.num(num), .pressed(pressed), .leds(leds));
+	numToLed n(.num(num), .pressed(pressed), .leds(leds), .gameOver(gameOver));
 	
 	Display d0(.simonTurn(simonTurn), .gameOver(gameOver), .clk(clk), .pos(pos), .display(display));
 
