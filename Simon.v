@@ -41,10 +41,10 @@ module Simon(
 			counterPlayer <= 0;
 			level <= 0;
 			timesPressed <= 0;
-			level <= 0;
 
 			//change the number to a rand
-			myNum <= rand;
+			memory[0] <= rand * myNum + memory[0];
+			myNum <= memory[0];
 
 		end else begin
 			if (!gmOver) begin
@@ -52,14 +52,16 @@ module Simon(
 					//press buttons
 					counterSimon <= counterSimon + 1;
 					if (counterSimon == 30) begin
+						myNum <= memory[timesPressed];
 						if (pressed) begin
+							
 							timesPressed <= timesPressed + 1;
 							if (level == timesPressed) begin
 								timesPressed <= 0;
 								//change turn
 								myTurn <= myTurn + 1;
-							end		
-						end 
+							end
+						end
 
 						pressed <= pressed + 1; //toggle pressed
 						counterSimon <= 0; //reset counter
@@ -69,7 +71,7 @@ module Simon(
 					//user turn
 					if(playerPressed)begin
 						
-						if(myNum == playerNum)begin
+						if(memory[timesPressed] == playerNum)begin
 							userState <= 1;
 						end else begin
 							gmOver <= 1;
@@ -89,10 +91,12 @@ module Simon(
 								timesPressed <= 0;
 								//change turn
 								myTurn <= myTurn + 1;
-								//pick new number
-								myNum <= rand;
+								
 								//sum to turn counter
 								level <= level + 1;
+								//pick new number
+								memory[level] = rand * myNum;
+								myNum <= memory[level];
 
 								if (level == 15) begin
 									gmOver <= 1;
