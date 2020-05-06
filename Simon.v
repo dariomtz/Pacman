@@ -41,7 +41,7 @@ module Simon(
 			gmOver <= 0;
 			counterSimon <= 0;
 			counterPlayer <= 0;
-			level <= 1;
+			level <= 0;
 			timesPressed <= 0;
 
 			//change the number to a rand
@@ -99,10 +99,12 @@ module Simon(
 								level <= level + 1;
 								//pick new number
 								//myNum <= rand;
-								memory[level] <= rand;
+								
 
 								if (level == 15) begin
 									gmOver <= 1;
+								end else begin
+									memory[level] <= rand;
 								end
 							end	else begin
 								timesPressed <= timesPressed + 1;
