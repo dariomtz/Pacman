@@ -26,6 +26,7 @@ module Simon(
 	reg [3:0] level;
 	reg [3:0] timesPressed;
 	reg [1:0] memory[15:0];
+	reg [3:0] speed;
 
 	random r(.clk(clk), .rand(rand));
 
@@ -52,7 +53,7 @@ module Simon(
 				if (myTurn) begin
 					//press buttons
 					counterSimon <= counterSimon + 1;
-					if (counterSimon == 30) begin
+					if (counterSimon == (30 - speed)) begin
 
 						if (level == timesPressed) begin
 							timesPressed <= 0;
@@ -82,6 +83,7 @@ module Simon(
 						end else begin
 							memory[level] <= rand;
 							level <= level + 1;
+							speed <= speed + 1;
 						end
 					end else begin 
 						if(playerPressed)begin
