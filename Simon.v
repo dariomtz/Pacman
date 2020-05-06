@@ -43,7 +43,7 @@ module Simon(
 			timesPressed <= 0;
 
 			//change the number to a rand
-			memory[0] <= rand * myNum + memory[0];
+			memory[0] <= rand * myNum;
 			myNum <= memory[0];
 
 		end else begin
