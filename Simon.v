@@ -16,6 +16,7 @@ module Simon(
     );
 
 	reg myTurn;
+	//wire [1:0] myNum;
 	reg [1:0] myNum;
 	reg pressed;
 	reg gmOver;
@@ -29,6 +30,7 @@ module Simon(
 
 	random r(.clk(clk), .rand(rand));
 
+	assign myNum = memory[timesPressed];
 	
 	always @(posedge clk or posedge reset)
 	begin
@@ -43,7 +45,8 @@ module Simon(
 			timesPressed <= 0;
 
 			//change the number to a rand
-			myNum <= rand;
+			//myNum <= rand;
+			memory[0] <= rand;
 
 		end else begin
 			if (!gmOver) begin
@@ -94,7 +97,8 @@ module Simon(
 								//sum to turn counter
 								level <= level + 1;
 								//pick new number
-								myNum <= rand;
+								//myNum <= rand;
+								memory[level] <= rand;
 
 								if (level == 15) begin
 									gmOver <= 1;
