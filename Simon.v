@@ -17,7 +17,6 @@ module Simon(
 
 	reg myTurn;
 	wire [1:0] myNum;
-	//reg [1:0] myNum;
 	reg pressed;
 	reg gmOver;
 	reg [4:0] counterSimon;
@@ -68,9 +67,8 @@ module Simon(
 							end
 
 							pressed <= pressed + 1; //toggle pressed
-							counterSimon <= 0; //reset counter
 						end
-						
+						counterSimon <= 0;
 					end
 					
 				end else begin
@@ -82,10 +80,10 @@ module Simon(
 						if (level == 15) begin
 							gmOver <= 1;
 						end else begin
-							memory[level + 1] <= rand;
+							memory[level] <= rand;
 							level <= level + 1;
 						end
-					end else begin
+					end else begin 
 						if(playerPressed)begin
 						
 							if(myNum == playerNum)begin
@@ -110,8 +108,7 @@ module Simon(
 					end
 				end
 			end
-		end
-			
+		end		
 	end
 
 	assign simonTurn = myTurn;
