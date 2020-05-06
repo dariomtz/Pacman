@@ -43,6 +43,7 @@ module Simon(
 			counterPlayer <= 0;
 			level <= 0;
 			timesPressed <= 0;
+			speed <= 0;
 
 			//change the number to a rand
 			//myNum <= rand;
