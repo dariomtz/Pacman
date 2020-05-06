@@ -41,7 +41,7 @@ module Simon(
 			gmOver <= 0;
 			counterSimon <= 0;
 			counterPlayer <= 0;
-			level <= 0;
+			level <= 1;
 			timesPressed <= 0;
 
 			//change the number to a rand
@@ -56,12 +56,13 @@ module Simon(
 					if (counterSimon == 30) begin
 						
 						if (pressed) begin
-							timesPressed <= timesPressed + 1;
-
+							
 							if (level == timesPressed) begin
 								timesPressed <= 0;
 								//change turn
 								myTurn <= myTurn + 1;
+							end else begin
+								timesPressed <= timesPressed + 1;
 							end
 						end
 
@@ -88,7 +89,7 @@ module Simon(
 						end
 
 						if(userState == 1) begin
-							timesPressed <= timesPressed + 1;
+							
 							if (level == timesPressed) begin
 								timesPressed <= 0;
 								//change turn
@@ -103,7 +104,9 @@ module Simon(
 								if (level == 15) begin
 									gmOver <= 1;
 								end
-							end	
+							end	else begin
+								timesPressed <= timesPressed + 1;
+							end
 							
 							userState <= 0;
 						end
