@@ -35,7 +35,7 @@ module Simon(
 	begin
 		if (reset) begin
 			//Simon begins
-			myTurn <= 1;
+			myTurn <= 0;
 			//reset game over and counters
 			gmOver <= 0;
 			counterSimon <= 0;
